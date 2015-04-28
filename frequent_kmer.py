@@ -12,7 +12,7 @@ def freq_kmer(text,k):
 	    else:
 	      kmer_count[kmer] += 1
   #frequent = max(sorted(kmer_count.items(),key=operator.itemgetter(1)))[0]
-  #won't work in case of ties
+  #won't work in case of ties, min/max picks the first/last element
   
 	max_count = 0
 	for k,v in kmer_count.items():
