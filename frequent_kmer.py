@@ -16,7 +16,7 @@ def freq_kmer(text,k):
   
 	max_count = 0
 	for k,v in kmer_count.items():
-	if v > max_count:
-	  max_count = v
-	pattern = [k for k,v in jmer_count.items() if v==max_count]
+		if v > max_count:
+	  		max_count = v
+	pattern = [k for k,v in kmer_count.items() if v==max_count]
 	return pattern
