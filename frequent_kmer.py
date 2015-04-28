@@ -1,27 +1,27 @@
-#Input = text,number
-#ACGTTGCATGTCGCATGATGCATGAGAGCT, 4
-#output = CATG GCAT
-text = "ACGTTGCATGTCGCATGATGCATGAGAGCT"
+##Input = text,number
+##ACGTTGCATGTCGCATGATGCATGAGAGCT, 4
+##output = CATG GCAT
+
+import sys
 import operator
+
+fname = sys.argv[1]
+f = open(fname)
+text = f.readline().strip()
+k = int(f.readline().strip())
+
 def freq_kmer(text,k):
 	kmer_count = {}
   	for i in range( len(text) - k + 1 ):
-	    kmer = text[i:i+k]
-	    if not kmer in kmer_count:
-	      kmer_count[kmer] = 1
-	    else:
-	      kmer_count[kmer] += 1
-  #frequent = max(sorted(kmer_count.items(),key=operator.itemgetter(1)))[0]
-  #won't work in case of ties, min/max picks the first/last element
-  
-	max_count = 0
-	for k,v in kmer_count.items():
-		if v > max_count:
-	  		max_count = v
+		kmer = text[i:i+k]	
+		kmer_count[kmer] = kmer_count.get(kmer,0) + 1
+		
+  	freq = max(kmer_count.items(),key=operator.itemgetter(1))
+	max_count = freq[1]
 	pattern = [k for k,v in kmer_count.items() if v==max_count]
 	return pattern
-
-pattern = freq_kmer(text,4)
+	
+pattern = freq_kmer(text,k)
 if len(pattern) == 1:
 	print pattern
 else:
