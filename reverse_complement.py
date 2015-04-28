@@ -19,14 +19,10 @@ c = [m.start() for m in re.finditer("C",dna)]
 g = [m.start() for m in re.finditer("G",dna)]
 
 dna_ls = list(dna)
-
-for i,k in zip((a,"T"),(t,"A"),(c,"G"),(g,"C")):
-	dna_ls = replace(dna_ls,i,k)
-
-#dna_ls	= replace(dna_ls,a,"T")
-#dna_ls	= replace(dna_ls,t,"A")
-#dna_ls	= replace(dna_ls,g,"C")
-#dna_ls	= replace(dna_ls,c,"G")
+dna_ls	= replace(dna_ls,a,"T")
+dna_ls	= replace(dna_ls,t,"A")
+dna_ls	= replace(dna_ls,g,"C")
+dna_ls	= replace(dna_ls,c,"G")
 
 print ''.join(dna_ls[::-1])
 
