@@ -1,7 +1,7 @@
 #Input = text,number
 #ACGTTGCATGTCGCATGATGCATGAGAGCT, 4
 #output = CATG GCAT
-
+text = "ACGTTGCATGTCGCATGATGCATGAGAGCT"
 import operator
 def freq_kmer(text,k):
 	kmer_count = {}
@@ -20,3 +20,10 @@ def freq_kmer(text,k):
 	  		max_count = v
 	pattern = [k for k,v in kmer_count.items() if v==max_count]
 	return pattern
+
+pattern = freq_kmer(text,4)
+if len(pattern) == 1:
+	print pattern
+else:
+	for i in pattern:
+		print i,
