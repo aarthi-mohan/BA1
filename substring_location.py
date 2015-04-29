@@ -6,6 +6,7 @@ import sys
 if len(sys.argv) == 1:
 	text = "GATATATGCATATACTT"
 	substr = "ATAT"
+	print "This is an example run. Please provide a filename with the substring in line #1 and the dna text in line #2"
 else:
 	f = open(sys.argv[1])
 	substr = f.readline().strip()
