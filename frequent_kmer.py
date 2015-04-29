@@ -1,14 +1,19 @@
 ##Input = text,number
 ##ACGTTGCATGTCGCATGATGCATGAGAGCT, 4
 ##output = CATG GCAT
-
+##Usage: python frequent_kmer.py rosalind_1a.txt 
 import sys
 import operator
 
-fname = sys.argv[1]
-f = open(fname)
-text = f.readline().strip()
-k = int(f.readline().strip())
+if len(sys.argv) == 1:
+	text = "ACGTTGCATGTCGCATGATGCATGAGAGCT"
+	k = 4
+	print "This is an example run. Please provide a filename with the text in line #1 and k in line #2"
+else:
+	fname = sys.argv[1]
+	f = open(fname)
+	text = f.readline().strip()
+	k = int(f.readline().strip())
 
 def freq_kmer(text,k):
 	kmer_count = {}
