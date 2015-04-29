@@ -3,8 +3,13 @@
 
 import sys, re
 
-f = open(sys.argv[1])
-dna = f.readline().strip()
+
+if len(sys.argv) == 1:
+	text = "AAAACCCGGT"
+	print "This is an example run. Please provide a filename with the dna text in line #1"
+else:
+	f = open(sys.argv[1])
+	dna = f.readline().strip()
 
 #dna = "AAAACCCGGT"
 
